@@ -6,6 +6,7 @@
   "scripts": {
     "bundle": "./node_modules/.bin/browserify src/browser/index.js -d > src/public/js/bundle.js",
     "start": "./node_modules/.bin/nodemon ./src/server/index.js",
+    "build": "grunt",
     "jsx": "./node_modules/.bin/jsx src/common/components/ src/lib/components/",
     "test": "./node_modules/.bin/mocha ./src/test --compilers js:babel/register --recursive"
   },
