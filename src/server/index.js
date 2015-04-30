@@ -1,10 +1,6 @@
 var Hapi = require('hapi');
-var Good = require('good');
 var Path = require('path');
-var React = require('react');
-var App = require('../lib/components/App.react');
-
-var AppFactory = React.createFactory(App);
+var plugins = require('./plugins');
 
 var server = new Hapi.Server({
   connections: {
@@ -32,36 +28,13 @@ server.views({
 
 server.route({
   method: 'GET',
-  path: '/app',
-  handler: function(request, reply) {
-    reply.view('index', {
-      app: React.renderToString(AppFactory({headerText: 'Will'}))
-    });
-  }
-});
-
-server.route({
-  method: 'GET',
   path: '/js/bundle.js',
   handler: {
     file: 'js/bundle.js'
   }
-})
+});
 
-server.register({
-  register: Good,
-  options: {
-    reporters: [
-      {
-        reporter: require('good-console'),
-        events: {
-          response: '*',
-          log: '*'
-        }
-      }
-    ]
-  }
-}, function(err) {
+server.register(plugins, function(err) {
   if(err) {
     throw err;
   }
