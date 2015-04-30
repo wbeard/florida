@@ -1,13 +1,17 @@
 var Hapi = require('hapi');
 var Good = require('good');
 var Path = require('path');
+var React = require('react');
+var App = require('../lib/components/App.react');
+
+var AppFactory = React.createFactory(App);
 
 var server = new Hapi.Server({
   connections: {
     routes: {
-        files: {
-            relativeTo: Path.join(__dirname, '../client/static')
-        }
+      files: {
+        relativeTo: Path.join(__dirname, '../public')
+      }
     }
   }
 });
@@ -19,29 +23,28 @@ server.connection({
 
 server.views({
   engines: {
-    jsx: require('hapi-react-views'),
     html: {
       module: require('handlebars'),
-      relativeTo: Path.join(__dirname, '../client/templates')
+      relativeTo: Path.join(__dirname, './templates')
     }
-  },
-  defaultExtension: 'html',
-  relativeTo: Path.join(__dirname, '../components')
+  }
 });
 
 server.route({
   method: 'GET',
   path: '/app',
   handler: function(request, reply) {
-    reply.view('index');
+    reply.view('index', {
+      app: React.renderToString(AppFactory({headerText: 'Will'}))
+    });
   }
 });
 
 server.route({
   method: 'GET',
-  path: '/bundle.js',
+  path: '/js/bundle.js',
   handler: {
-    file: 'bundle.js'
+    file: 'js/bundle.js'
   }
 })
 

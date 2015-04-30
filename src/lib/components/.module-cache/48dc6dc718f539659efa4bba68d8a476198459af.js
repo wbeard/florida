@@ -1,9 +1,10 @@
 var React = require('react');
 
 var Header = React.createClass({
-  render() {
+  displayName: 'Header',
+  render: function() {
     return(
-      <h1>{`Hi ${this.props.text}`}</h1>
+      React.createElement("h1", null,  'Hi ' + this.props.text)
     );
   }
 });
