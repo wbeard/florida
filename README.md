@@ -13,3 +13,22 @@
 
 #### Open in your browser
     open http://localhost:8000/app
+
+
+## Folder Structure
+
+#### Inspired by [react-isomorphic-boilerplate](https://github.com/jesstelford/react-isomorphic-boilerplate)
+
+    - src/browser   # Browser side logic
+    - common
+      - components  # Shared react components
+    - lib
+      - components  # Transpiled react components
+    - public
+      - js          # Bundled js
+    - server
+      - plugins     # Hapi plugins*
+      - routes      # Server routes*
+      - templates   # Server handlebars templates
+
+    * Structure pending
