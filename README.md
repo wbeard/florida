@@ -6,10 +6,10 @@
 ## Setup
 
 #### Build components & static resources
-    npm build
+    npm run build
 
 #### Serve them
-    npm start
+    npm run start
 
 #### Open in your browser
     open http://localhost:8000/app
