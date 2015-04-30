@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "bundle": "./node_modules/.bin/browserify src/browser/index.js -d > src/public/js/bundle.js",
-    "start": "nodemon ./src/server/index.js",
+    "start": "./node_modules/.bin/nodemon ./src/server/index.js",
     "jsx": "./node_modules/.bin/jsx src/common/components/ src/lib/components/",
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha ./src/test --compilers js:babel/register --recursive"
   },
   "author": "",
   "license": "ISC",
@@ -23,7 +23,9 @@
     "grunt": "^0.4.5",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-shell": "^1.1.2",
+    "jsdom": "^2.0.0",
     "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.1.0",
     "react-tools": "^0.13.2"
   }
 }
