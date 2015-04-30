@@ -19,16 +19,17 @@
 
 #### Inspired by [react-isomorphic-boilerplate](https://github.com/jesstelford/react-isomorphic-boilerplate)
 
-    - src/browser   # Browser side logic
-    - common
-      - components  # Shared react components
-    - lib
-      - components  # Transpiled react components
-    - public
-      - js          # Bundled js
-    - server
-      - plugins     # Hapi plugins*
-      - routes      # Server routes*
-      - templates   # Server handlebars templates
+    - src
+      - browser   # Browser side logic
+      - common
+        - components  # Shared react components
+      - lib
+        - components  # Transpiled react components
+      - public
+        - js          # Bundled js
+      - server
+        - plugins     # Hapi plugins*
+        - routes      # Server routes*
+        - templates   # Server handlebars templates
 
     * Structure pending
