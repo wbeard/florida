@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browserify": "^10.0.0",
     "good": "^6.1.2",
     "good-console": "^5.0.0",
     "handlebars": "^3.0.3",
